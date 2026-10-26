@@ -27,7 +27,7 @@ export default function Counter() {
         <>
         <h1>Count : {state.count}</h1>
 
-        <button onClick={() => dispatch({type: "Increment"})}>+</button>
+        <button onClick={() => dispatch({type: "Increment"})}>+</button> 
         <button onClick={() => dispatch({type: "Decrement"})}>-</button>
         <button onClick={() => dispatch({type: "Reset"})}>Reset</button>
         </>
