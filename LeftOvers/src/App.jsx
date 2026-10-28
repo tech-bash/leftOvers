@@ -1,23 +1,30 @@
-import { useState, lazy, Suspense } from 'react'
-import Counter from './LeftOvers/Counter'
+import { memo, Suspense, useMemo, useState } from 'react'
+// import Counter from './LeftOvers/Counter'
 import Dependency from './LeftOvers/Dependency'
 import './App.css'
 
-const Profile = lazy(() => import('./LeftOvers/Profile'));
+import ErrorBoundary from './LeftOvers/ErrorBoundary'
+import RefDemo from './LeftOvers/RefDemo'
+
+// const Counter = lazy(() => import('./LeftOvers/Counter'));
+// const Dependency = lazy(() => import('./LeftOvers/Dependency'))
+
+// const Child = memo(function Child({name}) {
+//   console.log("child rendering");
+
+//   return <h2>Hello, {name}</h2>
+// })
+
+function BrokenComponent() {
+  throw new Error("new error");
+}
 
 function App() {
-  const [show, setShow] = useState(false);
-
   return (
     <>
-    <button onClick={() => setShow(true)}>
-      Load profile
-    </button>
-
-    {show && (<Suspense fallback={<p>suspense is doing it's work</p>}>
-      <Profile/>
-    </Suspense>
-    )}
+    {/* <Dependency/> */}
+    {/* <Parent/>   // all the components that are the child of the parent, will also fall into error boundary */}
+    <RefDemo/>
     </>
   )
 }
